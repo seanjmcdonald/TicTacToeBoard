@@ -14,9 +14,24 @@ class TicTacToeBoardTest : public ::testing::Test
 		virtual void TearDown(){} //clean up after each test, (before destructor) 
 };
 
-/* EXAMPLE TEST FORMAT
+/* EXAMPLE TEST FORMAT*/
+
+
 TEST(TicTacToeBoardTest, unitTestName)
 {
 	ASSERT_TRUE(true);
 }
-*/
+
+TEST(TicTacToeBoardTest, placenegativerow)
+{
+	TicTacToeBoard obj;
+	Piece outcome=obj.placePiece(-1,0);
+	ASSERT_EQ(outcome,Invalid);
+}
+
+TEST(TicTacToeBoardTest, placenegativecol)
+{
+	TicTacToeBoard obj;
+	Piece outcome=obj.placePiece(0,-1);
+	ASSERT_EQ(outcome,Invalid);
+}
